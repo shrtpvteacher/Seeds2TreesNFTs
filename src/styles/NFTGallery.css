@@ -1,0 +1,148 @@
+/* NFTGallery.css */
+.nft-gallery-container {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1px;
+}
+
+/* Ensure cards are evenly spaced and properly sized */
+.nft-gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align NFTs */
+    gap: 20px;
+  }
+  
+
+  .nft-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+
+/* NFT Card styling */
+.nft-card {
+    width: 22%; /* Responsive width */
+    max-width: 513px; /* Set a reasonable max width */
+    min-height: 213px; /* Ensure height consistency */
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    background: #e2dfdf;
+    text-align: center;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nft-image {
+    width: 100%; /* Make image fill the card width */
+    height: auto; /* Keep aspect ratio */
+    object-fit: cover;
+    margin-top: 5px;
+    border: none; /* Ensure no borders */
+    border-radius: 0; /* ❌ Removed rounded corners */
+}
+
+
+/* Center text inside cards */
+.card-body {
+    padding: 1px;
+    
+  }
+  
+  
+
+.nft-details {
+    padding: .2rem;
+}
+
+.nft-details h3 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.nft-details p {
+    font-size: 0.1rem;
+    color: #555;
+}
+
+/* 🌍 GPS Button */
+.gps-button {
+    display: inline-block;
+    margin-top: 1px;
+    padding: 2px 2px;
+    background-color: #111511;
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background 0.3s ease-in-out;
+   
+}
+
+
+
+/* 🌱 Not Planted Text */
+.not-planted {
+    color: rgb(143, 95, 95);
+    font-weight: normal;
+    justify-content: center;
+    height: auto;
+}
+
+/* Center the title and add a styled box */
+.nft-gallery-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    
+}
+
+.nft-gallery-title {
+   
+    color: rgb(246, 242, 242); /* White text */
+    padding: 2px 2px;
+    border-radius: 0px; /* Rounded edges */
+    font-size: 3rem; /* Larger title */
+    width: 100%; /* Make image fill the card width */
+    height: auto; /* Keep aspect ratio */
+    font-weight: normal;
+    text-align: center;
+     /* Box only as wide as the text */
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* ✅ Force all cards & images to be square */
+.nft-card, .card, .card-img-top, .card-body {
+    border-radius: 0 !important;  /* 🚀 Force square corners */
+  }
+  
+
+  .google-map-btn {
+    display: inline-block;
+    margin-top: 1px;
+    padding: 2px 2px;
+    background-color: #111511;
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background 0.3s ease-in-out;
+  
+  .google-map-btn:hover {
+    background-color: #2d312f;
+    border-color: #111614;
+    color: white;
+  }
+ 
