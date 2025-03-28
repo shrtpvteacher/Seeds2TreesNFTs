@@ -2,7 +2,7 @@
 import { ethers } from 'ethers';
 import contractABI from '../abis/Seeds2TreesNFTs.json';
 
-const contractAddress = "0xB8D3a610BdeB6EEFD2c3F52A9C01850E9006909c"; // Replace with your real deployed address
+const contractAddress = "0x8ba2b3700b797378B2696060089afCeF20791087g"; // Replace with your real deployed address
 
 // Initialize provider and signer
 const provider = new ethers.providers.Web3Provider(window.ethereum);

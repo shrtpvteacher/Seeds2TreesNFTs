@@ -4,6 +4,7 @@ import UpdateMintPrice from "../components/UpdateMintPrice";
 import UpdateTreeLocation from "../components/UpdateTreeLocation";
 import WithdrawFunds from "../components/WithdrawFunds";
 import { Container } from "react-bootstrap";
+import UpdateImageBaseURI from "../components/UpdateImageBaseURI";
 
 const Admin = () => {
   return (
@@ -14,6 +15,8 @@ const Admin = () => {
       <UpdateTreeLocation />
       <hr className="my-5" />
       <WithdrawFunds />
+      <hr className="my-5" />
+      <UpdateImageBaseURI />
     </Container>
   );
 };

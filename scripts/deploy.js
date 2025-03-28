@@ -2,7 +2,7 @@ const hre = require("hardhat");
 const { run, network } = hre;
 
 async function main() {
-  //const INITIAL_DONATION_PRICE = ethers.utils.parseUnits('0.001', 'ether');
+ 
   const IMAGE_BASE_URI = "ipfs://bafybeifbjsfmlv3mmxfnyjvbdkslqgiy7uvomvbgggyplzb3nqeytnrsmy/";
 
   console.log(`🚀 Deploying to ${network.name}...`);
@@ -11,8 +11,8 @@ async function main() {
 
   // ✅ Deploy Contract
   const Seeds2TreesNFTs = await hre.ethers.getContractFactory('Seeds2TreesNFTs');
-  const seeds2TreesNFTs = await Seeds2TreesNFTs.deploy(IMAGE_BASE_URI );
-  const address = await seeds2TreesNFTs.deployed(); // ✅ Get deployed contract address
+  let seeds2TreesNFTs = await Seeds2TreesNFTs.deploy(IMAGE_BASE_URI);
+  await seeds2TreesNFTs.deployed(); // ✅ Get deployed contract address
 
   console.log(`✅ Contract deployed to: ${seeds2TreesNFTs.address}\n`);  
 

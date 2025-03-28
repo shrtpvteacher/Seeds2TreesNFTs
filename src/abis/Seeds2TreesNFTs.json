@@ -748,5 +748,18 @@
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
-    }
+    },
+    {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "newBaseURI",
+            "type": "string"
+          }
+        ],
+        "name": "setImageBaseURI",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
   ]
