@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import contractAbi from "../abi/Seeds2TreesNFTs.json"; // Update path as needed
+import { Form, Card, Button, Alert } from "react-bootstrap";
+import contractAbi from "../abis/Seeds2TreesNFTs.json"; // Update path as needed
 
-const CONTRACT_ADDRESS = "0xYourContractAddressHere"; // Replace with your actual contract address
+const CONTRACT_ADDRESS="0x8ba2b3700b797378B2696060089afCeF20791087g"; // Replace with your actual contract address
 
 const UpdateImageBaseURI = () => {
   const [provider, setProvider] = useState(null);
@@ -10,33 +11,39 @@ const UpdateImageBaseURI = () => {
   const [currentBaseURI, setCurrentBaseURI] = useState("");
   const [newBaseURI, setNewBaseURI] = useState("");
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const loadContract = async () => {
       if (window.ethereum) {
         const prov = new ethers.providers.Web3Provider(window.ethereum);
         const signer = prov.getSigner();
-        const c = new ethers.Contract(CONTRACT_ADDRESS, contractAbi, signer);
-        setProvider(prov);
-        setContract(c);
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, contractAbi, signer);
+        setProvider(provider);
+        setContract(contract);
 
-        try {
-          const current = await c.imageBaseURI();
-          setCurrentBaseURI(current);
-        } catch (err) {
-          console.error("Failed to fetch current imageBaseURI", err);
-        }
       }
-    };
+    }
 
     loadContract();
-  }, []);
+  }, []) ;
 
-  const handleUpdate = async () => {
-    if (!newBaseURI || !contract) return;
+ 
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    setStatus("");
+    setLoading(true);
+    if (!newBaseURI || !contract) return
 
     try {
-      const tx = await contract.setImageBaseURI(newBaseURI);
+ await contract.imageBaseURI();
+  setCurrentBaseURI(currentBaseURI);
+} catch (err) {
+  console.error("Failed to fetch current imageBaseURI", err);
+};
+
+    try {
+      const tx = await contract.setNewImageBaseURI(newBaseURI);
       setStatus("Transaction sent. Waiting for confirmation...");
       await tx.wait();
       setStatus("✅ imageBaseURI updated successfully!");
@@ -46,32 +53,41 @@ const UpdateImageBaseURI = () => {
       console.error(error);
       setStatus("❌ Error updating imageBaseURI.");
     }
+    setLoading(false);
   };
 
   return (
-    <div className="admin-section border p-4 mt-6 rounded-xl shadow-md bg-white">
-      <h2 className="text-lg font-bold mb-2">Update Image Base URI</h2>
-      <p className="text-sm mb-1">Current base URI:</p>
-      <code className="block bg-gray-100 p-2 mb-3 rounded text-sm break-all">{currentBaseURI}</code>
-
-      <input
+    <Card className="shadow">
+    <Card.Body>
+      <Card.Title>Update Image Base URI</Card.Title>
+      <Form onUpdate={handleUpdate} className="mt-3">
+          <Form.Group controlId="formNewBaseURI">
+            <Form.Label>Enter the new IPFS image base URI to change nft images.</Form.Label>
+      <Form.Control
         type="text"
-        placeholder="Enter new IPFS base URI"
+        placeholder="Enter new image base uri"
         value={newBaseURI}
         onChange={(e) => setNewBaseURI(e.target.value)}
-        className="w-full p-2 border rounded mb-2"
+        required 
       />
-
-      <button
-        onClick={handleUpdate}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded"
-      >
-        Update URI
-      </button>
-
-      {status && <p className="mt-3 text-sm">{status}</p>}
-    </div>
-  );
-};
+          </Form.Group>
+          <Button 
+          variant="warning"
+          type="update"
+          className="mt-3"
+          disabled={loading || !newBaseURI}
+          >
+        {loading ? "Updating..." : "Update Image Base URI"}   
+                </Button>
+                </Form>
+                {status && (
+                  <Alert variant={status.startsWith("✅") ? "success" : "danger"} className="mt-3">
+                    {status}
+                  </Alert>
+                )}
+              </Card.Body>
+            </Card>
+          );
+        };
 
 export default UpdateImageBaseURI;
