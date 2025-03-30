@@ -6,7 +6,9 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import "./styles/App.css";
-import * as contract from './helpers/contract'; // adjust path if needed
+import * as contract from './helpers/contract'; 
+import About from "./pages/About";
+import Footer from "./components/Footer";
 
 function App() {
   const [account, setAccount] = useState(null);
@@ -36,8 +38,10 @@ useEffect(() => {
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   );
