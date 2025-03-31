@@ -19,7 +19,7 @@ const Footer = () => {
         <a href="mailto:youremail@example.com"><FaEnvelope /> Email</a>
         <a href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer"><FaFilePdf />Whitepaper</a>
         <a href="https://github.com/yourgithub/seeds2treesnfts" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub </a>
-        <a href="https://x.com/yourtwitterhandle" target="_blank" rel="noopener noreferrer"><FaTwitter /> X (Twitter) </a>
+        <a href="https://x.com/shrtpvteacher" target="_blank" rel="noopener noreferrer"><FaTwitter /> X (Twitter) </a>
         <a href="https://youtube.com/your-video-demo-link" target="_blank" rel="noopener noreferrer"><FaYoutube /> Demo Video</a>
       </div>
     </footer>

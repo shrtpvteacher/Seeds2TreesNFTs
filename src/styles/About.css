@@ -1,18 +1,16 @@
 .about-page {
     position: relative;
-    background: linear-gradient(to bottom, #8acfe6, #011f01);
     height: 100vh;
-    overflow: hidden;
-    padding: 2rem;
+    overflow-y: auto;
     font-family: 'Poppins', sans-serif;
 }
-  
+
 .hero-image {
     position: absolute;
     right: 0;
     top: 0;
-    height: 100vh;
-    max-height: 100%;
+    height: 200vh;
+    max-height: 200%;
     object-fit: contain;
     z-index: 1;
     pointer-events: none; /* so text can scroll over it if needed */
@@ -20,12 +18,55 @@
 
 .about-text-box {
     position: relative;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 12px;
+    max-width: 700px;
     z-index: 2;
     max-height: 90vh;
     overflow-y: auto;
 }
+
+.about-text-box p {
+    text-indent: 1.5rem;      /* ✅ Indent first line */
+    line-height: 2;         /* ✅ Add spacing between lines */
+    margin-bottom: 2rem;      /* ✅ Add spacing between paragraphs */
+    color: #05161b;
+}
+
+.about-text-box h3 {
+    text-indent: 3rem;       
+    line-height: 2;         /* ✅ Add spacing between lines */
+    margin-bottom: 2rem;      /* ✅ Add spacing between paragraphs */
+    margin-top: 2rem;
+    
+}
+
+.about-the-creator {
+    position: relative;
+    max-width: 800px;
+    margin-top: 2rem;
+    z-index: 2;
+    max-height: 200vh;
+    overflow-y: auto;
+}
+
+.about-the-creator h3 {
+    
+    text-indent: 3rem;      /* ✅ Indent first line */
+    line-height: 2;         /* ✅ Add spacing between lines */
+    margin-bottom: 1rem;      /* ✅ Add spacing between paragraphs */
+    color: #05161b;
+}
   
+
+.about-the-creator p {
+    color: #090a0a;
+    text-indent: 1.5rem;      /* ✅ Indent first line */
+    line-height: 2;         /* ✅ Add spacing between lines */
+    margin-bottom: 5rem;      /* ✅ Add spacing between paragraphs */
+    margin-top: 1rem;
+}
+
+.creator-link {
+    color: orange;
+    font-weight: 600;
+    
+}
