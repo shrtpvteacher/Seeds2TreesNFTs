@@ -85,27 +85,3 @@ npx hardhat run scripts/deploy.js --network sepolia
 npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS
 
 ----
-
-# Project Structure
-
-src/
-├── assets/               # Logo and image files
-├── components/           # All React components
-    ├── Navigation.js     # Navbar with wallet connect
-    ├── MintNFT.js        # NFT minting form
-    ├── DonationChart.js  # Recharts-based ETH donations graph
-    ├── DonationTracker   # Tracks donations, # of trees planted, amount withdrawn.
-    ├── UpdateTreeLocation # sets date of planting, latitude and longitude of tree location.
-
-├── pages/                # All App pages
-    ├──Admin.js
-    ├──Gallery.js           
-    ├──Home.js
-    ├──About.js           
-├── helpers/
-    └── contract.js       # Ethers.js contract functions
-├── styles/
-   └── App.css           # Custom global styles
-├── App.js                # Main app entry
-├── index.js              # ReactDOM render
-└── routes/               # Page routes like /about /gallery
