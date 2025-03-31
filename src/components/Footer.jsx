@@ -15,7 +15,7 @@ const Footer = () => {
     <footer className="footer">
       <p>© 2025 Seeds2TreesNFTs — Built with ❤️ for the planet.</p>
       <div className="footer-links">
-        <a href="https://www.linkedin.com/in//kelly-coldren-804b1b2a/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/kelly-coldren-804b1b2a/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
         <a href="mailto:youremail@example.com"><FaEnvelope /> Email</a>
         <a href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer"><FaFilePdf />Whitepaper</a>
         <a href="https://github.com/yourgithub/seeds2treesnfts" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub </a>
