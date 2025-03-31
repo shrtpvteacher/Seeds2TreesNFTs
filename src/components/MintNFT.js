@@ -1,10 +1,11 @@
 // src/components/MintNFT.js
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
-import { getMintPrice, mintNFT, provider, signer, contract } from "../helpers/contract";
+import { getMintPrice, mintNFT, getProviderAndSigner} from "../helpers/contract";
 
 
 function MintNFT()  {
+    // eslint-disable-next-line no-unused-vars
   const [account, setAccount] = useState('');
   const [mintPrice, setMintPrice] = useState("0.005");
   const [donationAmount, setDonationAmount] = useState("");
@@ -22,16 +23,23 @@ function MintNFT()  {
       }
     }
     fetchMintPrice();
-  }, []);
 
+  }, []);
+   
+  /* eslint-disable no-unused-vars */
   async function connectWallet() {
-    if (!window.ethereum) {
-      alert('Please install MetaMask.');
-      return;
+     // will connect later
+    try {
+      const wallet = await getProviderAndSigner(); // already handles window.ethereum check + requestAccounts
+      if (wallet) {
+        setAccount(wallet.address);
+      }
+    } catch (err) {
+      console.error("Wallet connection error:", err);
+      alert("Failed to connect wallet.");
     }
-    const accounts = await provider.send('eth_requestAccounts', []);
-    setAccount(accounts[0]);
   }
+  /* eslint-enable no-unused-vars */
 
   const handleMint = async (e) => {
     e.preventDefault();

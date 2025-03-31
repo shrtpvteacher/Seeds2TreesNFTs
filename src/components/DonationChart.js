@@ -10,7 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { contractWithProvider, provider } from "../helpers/contract";
+import { getContractWithProvider, getProviderAndSigner } from "../helpers/contract";
 
 const DonationChart = () => {
   const [donationData, setDonationData] = useState([]);
@@ -18,8 +18,11 @@ const DonationChart = () => {
   useEffect(() => {
     const fetchDonations = async () => {
       try {
-        const filter = contractWithProvider.filters.TreeMinted();
-        const events = await contractWithProvider.queryFilter(filter, 0, "latest");
+        const contract = await getContractWithProvider();
+        const { provider } = await getProviderAndSigner();
+
+        const filter = contract.filters.TreeMinted();
+        const events = await contract.queryFilter(filter, 0, "latest");
 
         const seenTimestamps = new Set();
         const formatted = await Promise.all(
