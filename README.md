@@ -16,7 +16,7 @@ The dApp is built with React, Ethers.js, a smart contract written in Solidity an
 
 ## 🌐 Live Demo
 
-👉 [https://your-seeds2treesnfts.netlify.app]
+👉 [https://seeds2treesnfts.netlify.app]
 
 ## ✨ Features
 
