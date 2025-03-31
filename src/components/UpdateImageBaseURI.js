@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import { Form, Card, Button, Alert } from "react-bootstrap";
 import contractAbi from "../abis/Seeds2TreesNFTs.json"; // Update path as needed
 
-const CONTRACT_ADDRESS="0x8ba2b3700b797378B2696060089afCeF20791087g"; // Replace with your actual contract address
+const CONTRACT_ADDRESS="0x8ba2b3700b797378B2696060089afCeF20791087"; // Replace with your actual contract address
 
 const UpdateImageBaseURI = () => {
   const [provider, setProvider] = useState(null);
