@@ -5,7 +5,7 @@ import contractABI from '../abis/Seeds2TreesNFTs.json';
 
 const contractAddress = "0x8ba2b3700b797378B2696060089afCeF20791087"; // Replace with your real deployed address
 
-
+//const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 
 /*// Initialize provider and signer
@@ -37,11 +37,17 @@ export const getProviderAndSigner = async () => {
     }
   };
 
-  // ✅ Get contract with provider only (for read-only functions)
+const fallbackProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_SEPOLIA_RPC_URL);
+
+export function getContractWithProvider() {
+  return new ethers.Contract(contractAddress, contractABI, fallbackProvider);
+} 
+
+  /*// ✅ Get contract with provider only (for read-only functions)
   export async function getContractWithProvider() {
     const { provider } = await getProviderAndSigner();
     return new ethers.Contract(contractAddress, contractABI, provider);
-  }
+  } */
   
   // ✅ Get contract with signer (for write functions)
   export async function getContractWithSigner() {
