@@ -37,17 +37,17 @@ export const getProviderAndSigner = async () => {
     }
   };
 
-const fallbackProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_SEPOLIA_RPC_URL);
+/*const fallbackProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_SEPOLIA_RPC_URL);
 
 export function getContractWithProvider() {
   return new ethers.Contract(contractAddress, contractABI, fallbackProvider);
-} 
+} */
 
-  /*// ✅ Get contract with provider only (for read-only functions)
+  // ✅ Get contract with provider only (for read-only functions)
   export async function getContractWithProvider() {
     const { provider } = await getProviderAndSigner();
     return new ethers.Contract(contractAddress, contractABI, provider);
-  } */
+  } 
   
   // ✅ Get contract with signer (for write functions)
   export async function getContractWithSigner() {
