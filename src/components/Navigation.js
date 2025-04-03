@@ -85,7 +85,7 @@ const Navigation = () => {
           <Nav className="mx-auto">
             <Nav.Link as={Link} to="/" className="text-white mx-3">Home</Nav.Link>
             <Nav.Link as={Link} to="/gallery" className="text-white mx-3">Gallery</Nav.Link>
-            <Nav.Link as={Link} to="/checkTree" className="text-white mx-3">View My NFTs</Nav.Link>
+            <Nav.Link as={Link} to="/check-tree" className="text-white mx-3">View My NFTs</Nav.Link>
             <Nav.Link as={Link} to="/about" className="text-white mx-3">About</Nav.Link>
             <Nav.Link as={Link} to="/admin" className="text-white mx-3">Admin</Nav.Link>
           </Nav>
