@@ -1,10 +1,10 @@
 // src/pages/CheckTree.js
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import contractABI from "../abis/YourContractABI.json"; // 🔁 Adjust path
+import contractABI from "../abis/Seeds2TreesNFTs.json"; 
 import { Container, Row, Col, Card, Form, Button, Spinner } from "react-bootstrap";
 
-const CONTRACT_ADDRESS = "0xYourContractAddress"; // 🔁 Replace this
+const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; 
 
 const CheckTree = ({ account }) => {
   const [ownedNFTs, setOwnedNFTs] = useState([]);
