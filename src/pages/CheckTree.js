@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contractABI from "../abis/Seeds2TreesNFTs.json"; 
+import { getTokenURI } from "../helpers/contract";
 import { Container, Row, Col, Card, Form, Button, Spinner } from "react-bootstrap";
 
 const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; 
@@ -24,16 +25,23 @@ const CheckTree = ({ account }) => {
         const nfts = [];
 
         for (let i = 0; i < balance; i++) {
-          const tokenId = await contract.tokenOfOwnerByIndex(account, i);
-          const tokenURI = await contract.tokenURI(tokenId);
-          const response = await fetch(tokenURI);
-          const metadata = await response.json();
-
-          nfts.push({
-            tokenId: tokenId.toString(),
-            image: metadata.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"),
-
-          });
+          try { const tokenId = await contract.tokenOfOwnerByIndex(account, i);
+            const uri = await getTokenURI(tokenId);
+            const base64 = uri.split("base64,")[1];
+            const metadata = JSON.parse(atob(base64));
+            //const tokenURI = await contract.tokenURI(tokenId);
+            //const response = await fetch(tokenURI);
+            //const metadata = await response.json();
+  
+            nfts.push({
+              tokenId,
+              image: metadata.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"),
+  
+            });
+        } catch (err) {
+            console.warn(`Failed to load TokenID ${tokenId}:` err)
+        }  
+         
         }
 
         setOwnedNFTs(nfts);
