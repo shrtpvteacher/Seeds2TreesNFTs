@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contractABI from "../abis/Seeds2TreesNFTs.json"; 
-import { getTokenURI, getProviderAndSigner } from "../helpers/contract";
+import { getTokenMetadata, getProviderAndSigner } from "../helpers/contract";
 import { Container, Row, Col, Card, Form, Button, Spinner } from "react-bootstrap";
 
 const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; 
