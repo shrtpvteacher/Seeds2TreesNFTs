@@ -31,7 +31,8 @@ const CheckTree = ({ account }) => {
 
           nfts.push({
             tokenId: tokenId.toString(),
-            image: metadata.image,
+            image: metadata.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"),
+
           });
         }
 
