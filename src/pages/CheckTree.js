@@ -34,7 +34,7 @@ const CheckTree = ({ account }) => {
   
             });
         } catch (err) {
-            console.warn(`Failed to load TokenID ${tokenId}:` err)
+            console.warn(`Failed to load TokenID ${tokenId}:`, err)
         }  
          
         }
