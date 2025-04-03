@@ -155,3 +155,16 @@ export async function mintNFT(donationAmountEth) {
     return owner.toLowerCase() === account.toLowerCase();
   }
   
+  export async function getTokenMetadata(tokenId) {
+    const tokenURI = await getTokenURI(tokenId);
+  
+    if (tokenURI.startsWith("data:application/json;base64,")) {
+      const base64 = tokenURI.split("base64,")[1];
+      const json = atob(base64);
+      return JSON.parse(json);
+    } else {
+      const response = await fetch(tokenURI);
+      return await response.json();
+    }
+  }
+  

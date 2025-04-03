@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import contractABI from "../abis/Seeds2TreesNFTs.json"; 
-import { getTokenURI } from "../helpers/contract";
+import { getTokenURI, getProviderAndSigner } from "../helpers/contract";
 import { Container, Row, Col, Card, Form, Button, Spinner } from "react-bootstrap";
 
 const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; 
@@ -12,23 +12,23 @@ const CheckTree = ({ account }) => {
   const [inputId, setInputId] = useState("");
   const [treeStatus, setTreeStatus] = useState(null);
   const [checking, setChecking] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadNFTs = async () => {
-      if (!account || typeof window.ethereum === "undefined") return;
-
+    async function fetchOwnedNFTs() {
+        setLoading(true);
       try {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, provider);
-
+        const account = await getProviderAndSigner(account);
+    
         const balance = await contract.balanceOf(account);
-        const nfts = [];
+        const results = [];
 
         for (let i = 0; i < balance; i++) {
-          try { const tokenId = await contract.tokenOfOwnerByIndex(account, i);
-           const metadata = await getTokenURI(tokenId);
+          try { 
+            const tokenId = await contract.tokenOfOwnerByIndex(account, i);
+            const metadata = await getTokenMetadata(tokenId);
   
-            nfts.push({
+            results.push({
               tokenId,
               image: metadata.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"),
   
@@ -39,19 +39,19 @@ const CheckTree = ({ account }) => {
          
         }
 
-        setOwnedNFTs(nfts);
+        setOwnedNFTs(results);
       } catch (err) {
         console.error("Error loading owned NFTs:", err);
       }
+      setLoading(false);
     };
-
-    loadNFTs();
+fetchOwnedNFTs();
   }, [account]);
 
   const handleCheckTree = async () => {
     if (!inputId) return;
     setChecking(true);
-    setTreeStatus(null);
+    setTreeStatus(null); 
 
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -87,12 +87,13 @@ const CheckTree = ({ account }) => {
 
       {treeStatus && (
         <p className="text-info fs-5">
-          Token #{inputId}: {treeStatus}
+          Token {inputId}: {treeStatus}
         </p>
       )}
 
       {/* 🌱 Show user's NFTs visually */}
       <Row className="mt-4">
+
         {ownedNFTs.length === 0 ? (
           <p>You don't own any NFTs yet.</p>
         ) : (
