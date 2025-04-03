@@ -139,10 +139,10 @@
     text-decoration: none;
     border-radius: 0px;
     transition: background 0.3s ease-in-out;
+  }
   
   .google-map-btn:hover {
     background-color: #2d312f;
     border-color: #111614;
     color: white;
   }
- 

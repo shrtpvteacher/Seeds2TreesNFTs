@@ -9,6 +9,7 @@ import "./styles/App.css";
 import * as contract from './helpers/contract'; 
 import About from "./pages/About";
 import Footer from "./components/Footer";
+import CheckTree from "./pages/CheckTree";
 
 function App() {
   const [account, setAccount] = useState(null);
@@ -39,6 +40,7 @@ useEffect(() => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
+            <Route path="/check" element={<CheckTree account={account} />} />
           </Routes>
         </div>
         <Footer />
