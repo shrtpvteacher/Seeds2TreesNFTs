@@ -26,12 +26,7 @@ const CheckTree = ({ account }) => {
 
         for (let i = 0; i < balance; i++) {
           try { const tokenId = await contract.tokenOfOwnerByIndex(account, i);
-            const uri = await getTokenURI(tokenId);
-            const base64 = uri.split("base64,")[1];
-            const metadata = JSON.parse(atob(base64));
-            //const tokenURI = await contract.tokenURI(tokenId);
-            //const response = await fetch(tokenURI);
-            //const metadata = await response.json();
+           const metadata = await getTokenURI(tokenId);
   
             nfts.push({
               tokenId,
