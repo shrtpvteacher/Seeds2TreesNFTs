@@ -7,7 +7,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "../styles/App.css";
 import "../styles/MintNFT.css";
 import "../styles/DonationTracker.css"
-import "../videos/install-metamask.mp4"
+//import "../videos/install-metamask.mp4"
 
 const Home = () => {
     const [hasMetaMask, setHasMetaMask] = useState(true);
