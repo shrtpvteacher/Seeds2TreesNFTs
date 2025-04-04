@@ -40,7 +40,7 @@ useEffect(() => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
-            <Route path="/check-tree" element={<CheckTree account={account} />} />
+            <Route path="/my-nfts" element={<MyNFTPage account={account} />} />
           </Routes>
         </div>
         <Footer />
