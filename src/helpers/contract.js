@@ -168,3 +168,8 @@ export async function mintNFT(donationAmountEth) {
     }
   }
   
+  export async function getImageBaseURI() {
+    const contract = await getContractWithProvider();
+    return await contract.imageBaseURI(); // returns base URI as a string
+  }
+  
