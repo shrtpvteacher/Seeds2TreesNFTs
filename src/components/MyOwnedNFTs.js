@@ -10,11 +10,13 @@ const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087";
 const MyOwnedNFTs = () => {
   const [ownedNFTs, setOwnedNFTs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [provider, setProvider] = useState(null)
 
   useEffect(() => {
     async function fetchNFTs() {
       setLoading(true);
       try {
+        
         const { provider, address } = await getProviderAndSigner();
         const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, provider);
         const balance = await contract.balanceOf(address);
