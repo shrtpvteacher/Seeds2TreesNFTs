@@ -70,7 +70,7 @@ const CheckTree = ({ account }) => {
     <Container className="py-4">
       <h2 className="mb-4">My Trees</h2>
 
-      {/* 🔍 Input to check specific NFT */}
+      {/* 🔍 Input to check specific NFT 
       <Form className="mb-5 d-flex flex-column flex-sm-row align-items-center gap-2">
         <Form.Control
           type="number"
@@ -91,7 +91,7 @@ const CheckTree = ({ account }) => {
         </p>
       )}
 
-      {/* 🌱 Show user's NFTs visually */}
+      {/* 🌱 Show user's NFTs visually 
       <Row className="mt-4">
         {ownedNFTs.length === 0 ? (
           <p>You don't own any NFTs yet.</p>
