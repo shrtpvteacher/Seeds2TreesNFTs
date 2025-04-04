@@ -27,7 +27,7 @@ const MyOwnedNFTs = () => {
           const metadata = await getTokenMetadata(tokenId);
 
           results.push({
-            tokenId,
+            tokenId: tokenId.toString(),
             image: metadata.image.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/"),
           });
         }
