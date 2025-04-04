@@ -9,7 +9,7 @@ import "./styles/App.css";
 import * as contract from './helpers/contract'; 
 import About from "./pages/About";
 import Footer from "./components/Footer";
-import CheckTree from "./pages/CheckTree";
+import MyNFTPage from "./pages/MyNFTPage";
 
 function App() {
   const [account, setAccount] = useState(null);
