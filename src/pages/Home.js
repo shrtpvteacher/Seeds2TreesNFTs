@@ -160,11 +160,12 @@ const Home = () => {
       <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
 
       {/* Mission Paragraph */}
-      <h2
+      <h3
         className="bold mb-5 "
         style={{  }}
       > A Web3-powered tree planting donation platform where each NFT represents a tree planted!
       use the NFT to track its growth ! 
+      </h3>
      
 
       {/* Video 1: MetaMask Setup */}
