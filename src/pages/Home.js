@@ -28,7 +28,7 @@ Manual Visual Test – Open browser, Inspect → Mobile View 📱 check
 
 import React, { useState } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
-import './Home.css';  // Make sure you have Home.css created and imported
+// import './Home.css';  // Make sure you have Home.css created and imported
 
 const Home = () => {
   const [showMetaMaskVideo, setShowMetaMaskVideo] = useState(false);
