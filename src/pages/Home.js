@@ -163,10 +163,9 @@ const Home = () => {
       <h2
         className="bold mb-5 "
         style={{  }}
-      > A Web3-powered donation platform where each donation mints an NFT
-       and a tree is planted in the Redwood Forest with the donation. You can also 
-       track the trees location once planted to see its growth!
-      </h2>
+      > A Web3-powered tree planting donation platform where each NFT represents a tree planted!
+      use the NFT to track its growth ! 
+     
 
       {/* Video 1: MetaMask Setup */}
       <MetaMaskVideo />
