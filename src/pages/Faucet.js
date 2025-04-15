@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Alert, Spinner } from 'react-bootstrap';
+import { ethers } from 'ethers';
 
 const Faucet = () => {
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,15 @@ const Faucet = () => {
       setMessage(null);
       setError(null);
 
-      const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        // ✅ 1. Load provider and request wallet connection
+        if (!window.ethereum) {
+            throw new Error("MetaMask is not installed");
+          }
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const signer = provider.getSigner();
+          const account = await signer.getAddress();
+
 
       const res = await fetch('/.netlify/functions/claimFor', {
         method: 'POST',
