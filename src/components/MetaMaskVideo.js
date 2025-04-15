@@ -92,7 +92,7 @@ const MetaMaskVideo = () => {
 
       {/* Skip Button */}
       <div className="text-center mb-3">
-        <Button href="/mint" variant="success" size="md" className="rounded-pill">
+        <Button href="/donate" variant="success" size="md" className="rounded-pill">
           I Already Have MetaMask — Skip to Mint
         </Button>
       </div>
