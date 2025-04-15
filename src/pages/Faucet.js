@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Container, Alert, Spinner } from 'react-bootstrap';
-import { ethers } from 'ethers';
-import { getCustomContractWithSigner } from '../helpers/contract'; // update to your import path
-import faucetAbi from '../abis/Seeds2TreesFaucet.json';
-
-const faucetAddress = "0x01279BEf2091d8cC177E3a474d3B802BA7722e54"; // Replace with real address
 
 const Faucet = () => {
   const [loading, setLoading] = useState(false);
@@ -17,17 +12,26 @@ const Faucet = () => {
       setMessage(null);
       setError(null);
 
-      const faucetContract = await getCustomContractWithSigner(faucetAddress, faucetAbi);
+      const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
-      //  const signer = new ethers.providers.Web3Provider(window.ethereum).getSigner();
-      //  const faucetContract = new ethers.Contract(faucetAddress, faucetAbi, signer);
+      const res = await fetch('/.netlify/functions/claimFor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ recipient: account }),
+      });
 
-      const tx = await faucetContract.claim();
-      await tx.wait();
+      const result = await res.json();
 
-      setMessage("Success! You received test ETH. 🎉");
+      if (result.success) {
+        setMessage("Success! You received test ETH. 🎉");
+      } else {
+        throw new Error(result.error || "Claim failed.");
+      }
+
     } catch (err) {
-      console.error(err);
+      console.error("Claim error:", err);
       setError("Something went wrong or you already claimed.");
     } finally {
       setLoading(false);
