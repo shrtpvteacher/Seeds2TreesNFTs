@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import DonationPage from "./pages/DonationPage"
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
+import Faucet from './pages/Faucet';
 import "./styles/App.css";
 import * as contract from './helpers/contract'; 
 import About from "./pages/About";
@@ -38,6 +39,7 @@ useEffect(() => {
         <div className="content-container">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/faucet" element={<Faucet />} />
             <Route path="/donate" element={<DonationPage />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />

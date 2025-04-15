@@ -57,6 +57,13 @@ export function getContractWithProvider() {
     return new ethers.Contract(contractAddress, contractABI, signer);
   }
   
+  // ✅ Generic contract loader with signer (pass in address + ABI)
+export async function getCustomContractWithSigner(address, abi) {
+    const wallet = await getProviderAndSigner();
+    if (!wallet) return null;
+    const { signer } = wallet;
+    return new ethers.Contract(address, abi, signer);
+  }
   
 
   /*// ✅ Get contract with signer (used for write functions)
