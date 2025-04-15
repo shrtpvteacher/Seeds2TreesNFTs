@@ -605,6 +605,45 @@
       "artifacts": [
         "Seeds2TreesNFTs"
       ]
+    },
+    "/Users/coding/Seeds2TreesNFT_DonationTrackerProject/contracts/Seeds2TreesFaucet.sol": {
+      "lastModificationDate": 1744686793828,
+      "contentHash": "67a998e22a648eff948fdb0fdebcce5f",
+      "sourceName": "contracts/Seeds2TreesFaucet.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC721",
+        "Seeds2TreesFaucet"
+      ]
     }
   }
 }

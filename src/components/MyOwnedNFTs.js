@@ -10,7 +10,7 @@ const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087";
 const MyOwnedNFTs = () => {
   const [ownedNFTs, setOwnedNFTs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [provider, setProvider] = useState(null)
+  //const [provider, setProvider] = useState(null)
 
   useEffect(() => {
     async function fetchNFTs() {

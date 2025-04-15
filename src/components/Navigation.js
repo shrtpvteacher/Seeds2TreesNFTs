@@ -84,6 +84,7 @@ const Navigation = () => {
           {/* Navigation Links */}
           <Nav className="mx-auto">
             <Nav.Link as={Link} to="/" className="text-white mx-3">Home</Nav.Link>
+            <Nav.Link as={Link} to="/donation-page" className="text-white mx-3">Donate & Mint</Nav.Link>
             <Nav.Link as={Link} to="/gallery" className="text-white mx-3">Gallery</Nav.Link>
             <Nav.Link as={Link} to="/my-nfts" className="text-white mx-3">View My NFTs</Nav.Link>
             <Nav.Link as={Link} to="/about" className="text-white mx-3">About</Nav.Link>

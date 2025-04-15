@@ -11,6 +11,10 @@ const About = () => {
         <div className="about-text-box">
           <h3>About Seeds2Trees</h3>
           <p>
+            Seeds2Trees is a mission-driven NFT project that transparently tracks real-world tree planting through on-chain donations.
+            Each NFT represents a contribution to reforestation, with metadata updated as trees are planted — including location and planting date.
+            This collection isn't just art — it's a ledger of environmental action.</p>
+          <p>
             Seeds2TreesNFTs is a smart contract blockchain-powered donation platform where every minted NFT
             represents a real-world tree. Each NFT begins as a placeholder, and over time,
             it transforms into a digital record of an actual planted tree — including its

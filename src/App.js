@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
+import DonationPage from "./pages/DonationPage"
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import "./styles/App.css";
@@ -37,6 +38,7 @@ useEffect(() => {
         <div className="content-container">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/" element={<DonationPage />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
