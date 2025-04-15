@@ -86,7 +86,7 @@ const MetaMaskVideo = () => {
   const metaMaskVideoId = "M2krM0MdqCE";
 
   return (
-    <Card className="p-4 mb-5 shadow-lg rounded-4 bg-white bg-opacity-90">
+    <Card className="p-4 mb-5 shadow-lg rounded-4 sm-white bg-opacity-40">
       <h2 className="mb-3">🦊 You’ll need a MetaMask wallet to use this site.</h2>
       <p>Please watch this short video on how to install MetaMask, or skip ahead if you already have it.</p>
 
