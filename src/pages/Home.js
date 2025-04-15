@@ -157,15 +157,14 @@ const Home = () => {
   return (
     <Container className="py-5 text-center">
       {/* Hero Title */}
-      <h1 className="display-4 fw-bold mb-3">🌳 Seeds2Trees</h1>
+      <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
 
       {/* Mission Paragraph */}
       <p
-        className="lead mb-5 px-3 bg-white bg-opacity-75 p-4 rounded shadow"
-        style={{ maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}
+        className="lead mb-5 px-3 bg-white bg-opacity-95 p-4 rounded shadow"
+        style={{ maxWidth: '700px', margin: '0 auto', lineHeight: '2' }}
       >
-        A Web3-powered donation platform where each donation mints an NFT representing a tree, from seedling to planting.
-        Join us in the fight against climate change and support global reforestation efforts.
+        A Web3-powered donation platform where each donation mints an NFT and plants a tree representing a tree in the Redwood Forest.
       </p>
 
       {/* Video 1: MetaMask Setup */}
