@@ -38,7 +38,7 @@ useEffect(() => {
         <div className="content-container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/" element={<DonationPage />} />
+            <Route path="/donate" element={<DonationPage />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
