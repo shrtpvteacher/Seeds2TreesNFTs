@@ -25,7 +25,7 @@ Manual Visual Test – Open browser, Inspect → Mobile View 📱 check
 
 ✅ Ready to Launch!
 */
-
+/*
 import React, { useState } from 'react';
 import { Container, Row, Card, Button } from 'react-bootstrap';
 // import './Home.css';  // Make sure you have Home.css created and imported
@@ -49,39 +49,37 @@ const Home = () => {
         <div className="min-h-screen bg-gradient-to-b from-green-200 to-green-500 p-6">
           <div className="max-w-5xl mx-auto text-center">
 
-            {/* Hero Section */}
-            <h1 className="text-5xl font-bold mb-4 hero-text">Seeds2Trees</h1>
+            /* Hero Section */ 
+           /* <h1 className="text-5xl font-bold mb-4 hero-text">Seeds2Trees</h1>
             <p className="text-xl mb-10 hero-subtext">Planting Trees, Growing Futures 🌱</p>
 
-            {/* Subheader and Intro Paragraph Section */}
-            <div className="bg-white bg-opacity-70 rounded-2xl shadow-lg p-6 mb-10">
+            /* Subheader and Intro Paragraph Section */
+          /*  <div className="p-4 mb-5 bg-white rounded shadow-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                <h2 className="fw-bold mb-3">Our Mission</h2>
+                    <p className="lead" style={{ lineHeight: '1.6' }}>
+                            Seeds2Trees is a Web3-powered donation platform where each donation mints an NFT representing a tree, from seedling to planting.
+                            Your contribution helps fight climate change and supports reforestation efforts around the world.
+                 </p>
+           </div>
 
-              <h2 className="subheader">Our Mission</h2>
+          </div> 
 
-              <p className="intro-paragraph">
-                Seeds2Trees is a Web3-powered donation platform where each donation mints an NFT representing a tree from seedling to planting. 
-                Your contribution helps fight climate change and supports reforestation efforts around the world.
-              </p>
-
-            </div>
-          </div>
-
-          {/* Video Section */}
+          
           <Row className="mt-4">
             <Card className="p-2 ms-1 w-100 d-flex flex-column align-items-center justify-content-start">
 
-              {/* Wallet Explanation FIRST */}
+            
               <h2>🦊 You will need a MetaMask wallet to interact with this site.</h2>
               <h2>Please watch this short video on how to install MetaMask</h2>
 
-              {/* Skip Button AFTER explanation */}
+             
               <div className="text-center mb-3">
                 <Button href="/mint" variant="success" size="md" className="rounded-pill">
                   I Already Have a Wallet — Skip the Video
                 </Button>
               </div>
 
-              {/* MetaMask Setup Video */}
+             
               <div className="mb-4">
                 {!showMetaMaskVideo ? (
                   <img
@@ -104,7 +102,7 @@ const Home = () => {
                 )}
               </div>
 
-              {/* Faucet & Mint NFT Video */}
+            
               <h2 className="mt-5">🌱 How to Get Sepolia Test ETH and Mint Your Tree</h2>
 
               <div className="mb-4">
@@ -129,7 +127,7 @@ const Home = () => {
                 )}
               </div>
 
-              {/* Final Enter Site Button */}
+            
               <div className="text-center mt-4">
                 <Button href="/mint" variant="success" size="lg" className="rounded-pill">
                   Enter Site Here!
@@ -142,6 +140,40 @@ const Home = () => {
         </div>
       </div>
     </Container>      
+  );
+};
+
+export default Home; */
+
+
+
+
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import MetaMaskVideo from '../components/MetaMaskVideo';
+import FaucetVideo from '../components/FaucetVideo';
+
+const Home = () => {
+  return (
+    <Container className="py-5 text-center">
+      {/* Hero Title */}
+      <h1 className="display-4 fw-bold mb-3">🌳 Seeds2Trees</h1>
+
+      {/* Mission Paragraph */}
+      <p
+        className="lead mb-5 px-3 bg-white bg-opacity-75 p-4 rounded shadow"
+        style={{ maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}
+      >
+        A Web3-powered donation platform where each donation mints an NFT representing a tree, from seedling to planting.
+        Join us in the fight against climate change and support global reforestation efforts.
+      </p>
+
+      {/* Video 1: MetaMask Setup */}
+      <MetaMaskVideo />
+
+      {/* Video 2: Faucet + Mint Instructions */}
+      <FaucetVideo />
+    </Container>
   );
 };
 
