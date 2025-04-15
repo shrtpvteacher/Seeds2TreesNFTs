@@ -17,7 +17,7 @@ const DonationPage = () => {
       <MintNFT />
       </div>
       
-      <Row className="mt-4">
+      <Row className="mt-4 mb-4">
         <Col md={6} >
         <Card className="p-2 ms-1 w-100 h-100 d-flex flex-column justify-content-start" style={{ height: "100%" }}>
       <DonationTracker />
