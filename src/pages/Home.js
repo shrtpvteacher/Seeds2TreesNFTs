@@ -156,31 +156,34 @@ import seedlingHero from '../assets/seedling-hero-image.png';
 
 const Home = () => {
   return (
+
+    <div className="home-wrapper">
+  <img
+    src={seedlingHero}
+    alt="Seeds2Trees Journey Icon"
+    className="hero-background-image"
+  />
+
     <Container className="py-3 text-center position-relative">
     
       {/* Hero Title */}
     <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
-    <div className="hero-layout d-flex align-items-center justify-content-center flex-wrap">
-  <img
-    src={seedlingHero}
-    alt="Seeds2Trees Journey Icon"
-    className="hero-icon me-4"
-    style={{ maxWidth: '250px', height: 'auto' }}
-  />
+   
 
-  <p className="mission-text">
-    A Web3-powered tree planting donation platform where each NFT represents a tree planted.
-    Use the NFT to track its growth!
-  </p>
-</div>
-     
+<h3 className="mission-reset mt-4 mb-3">
+      A Web3-powered tree planting donation platform where each NFT represents a tree planted.
+      Use the NFT to track its growth!
+    </h3>
 
+    
       {/* Video 1: MetaMask Setup */}
       <MetaMaskVideo />
 
       {/* Video 2: Faucet + Mint Instructions */}
       <FaucetVideo />
     </Container>
+
+    </div>
   );
 };
 

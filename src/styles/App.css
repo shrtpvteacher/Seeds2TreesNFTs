@@ -95,4 +95,32 @@ h1, h2, h3, h4, h5 {
   
   
   
+  .home-wrapper {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
   
+  /* Big full-width background image behind all content */
+  .hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: none;
+    height: auto;
+    z-index: 0;
+    opacity: 0.15; /* light enough not to distract */
+    pointer-events: none;
+  }
+  
+  /* Paragraph styling reset to natural */
+  .mission-reset {
+    font-size: 1.4rem;
+    color: #141312;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.7;
+    font-family: 'Poppins', sans-serif;
+  }
