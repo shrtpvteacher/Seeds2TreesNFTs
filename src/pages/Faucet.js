@@ -30,10 +30,16 @@ const Faucet = () => {
         body: JSON.stringify({ recipient: userAddress }),
       });
 
-      const result = await res.json();
-      console.log("🌐 Faucet function response:", result);
+      let result;
+      // const result = await res.json();
+      try {
+        result = await res.json();
+      } catch (parseErr) {
+        throw new Error ("Server returned invalid JSON.");
+      }
+      console.log("🌐 Faucet backend response:", result);
 
-      if (result.success) {
+      if (res.ok && result.success) {
         setMessage("✅ Success! You received test ETH.");
       } else {
         throw new Error(result.error || "Claim failed.");
@@ -64,6 +70,12 @@ const Faucet = () => {
       >
         {loading ? <Spinner animation="border" size="sm" /> : "Claim Test ETH"}
       </Button>
+
+    {loading && (
+      <div className="mt-3">
+      <Alert variant="info">⏳ Your request is being processed. Please wait...</Alert>
+      </div>
+   )}
 
       <div className="mt-4">
         <Button href="/mint" variant="success" size="md" className="rounded-pill">

@@ -3,7 +3,7 @@ const { ethers } = require("hardhat");
 
 async function main() {
   const faucetAddress = process.env.FAUCET_CONTRACT_ADDRESS;
-  const amountInEth = "0.003"; // Amount to send
+  const amountInEth = "0.005"; // Amount to send
 
   const [sender] = await ethers.getSigners();
 
