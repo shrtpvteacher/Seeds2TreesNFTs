@@ -88,6 +88,16 @@ h1, h2, h3, h4, h5 {
     margin-top: 2rem;
   }
    
+  .hero-background-image {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 500px; /* larger than before */
+    height: auto;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
   
   
   
