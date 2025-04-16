@@ -10,7 +10,7 @@ const FaucetVideo = () => {
       <h2 className="mb-3">🌱 Ready to Mint Your Tree NFT?</h2>
       <p>Watch this short video to learn how to get Sepolia test ETH and use it to mint your NFT.</p>
 
-      {/* Video or Thumbnail */}
+      {/* 
       <div className="mb-4 text-center">
         {!showVideo ? (
           <img
@@ -30,8 +30,8 @@ const FaucetVideo = () => {
           </div>
         )}
       </div>
+      */}
 
-      {/* CTA Button */}
       <div className="text-center">
         <Button href="/faucet" variant="success" size="md" className="rounded-pill">
           Go to Faucet

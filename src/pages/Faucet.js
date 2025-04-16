@@ -1,3 +1,5 @@
+console.log("Faucet page loaded")
+
 import React, { useState } from 'react';
 import { Button, Container, Alert, Spinner } from 'react-bootstrap';
 import { ethers } from 'ethers';
