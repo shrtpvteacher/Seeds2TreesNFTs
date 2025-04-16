@@ -1,11 +1,13 @@
 const { ethers } = require("ethers");
 const faucetAbi = require("./abis/FaucetAbi.json");
 
+// ✅ Secure environment variables
 const FAUCET_ADDRESS = process.env.FAUCET_CONTRACT_ADDRESS;
 const PRIVATE_KEY = process.env.SEPOLIA_PRIVATE_KEY;
 const RPC_URL = process.env.SEPOLIA_RPC_URL;
 
 exports.handler = async function (event) {
+  // ✅ Ensure only POST requests are allowed
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -13,9 +15,18 @@ exports.handler = async function (event) {
     };
   }
 
+  // ✅ Fallback if environment variables are not set
+  if (!FAUCET_ADDRESS || !PRIVATE_KEY || !RPC_URL) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ success: false, error: "Server misconfiguration: missing environment variables." }),
+    };
+  }
+
   try {
     const { recipient } = JSON.parse(event.body);
 
+    // ✅ Validate the provided recipient address
     if (!recipient || !ethers.utils.isAddress(recipient)) {
       return {
         statusCode: 400,
@@ -40,7 +51,6 @@ exports.handler = async function (event) {
   } catch (error) {
     console.error("❌ Faucet claim failed:", error.message);
 
-    // Special message if already claimed
     const msg = error.message.toLowerCase();
     if (msg.includes("already claimed") || msg.includes("revert")) {
       return {
