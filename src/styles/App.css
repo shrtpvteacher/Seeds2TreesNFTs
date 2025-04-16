@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;600&display=swap');
+
 .App {
     min-height: 100vh;
     background: linear-gradient(to bottom, #8acfe6, #011f01);
@@ -25,16 +27,11 @@
 }
   
 h1, h2, h3, h4, h5 {
-    color: #141312;
+    color: #342e2a;
     font-weight: 600;
 }
 
-.App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-  
+
 .content-container {
     flex: 1;
 }
@@ -53,3 +50,49 @@ h1, h2, h3, h4, h5 {
       transform: translateY(0);
     }
   }
+
+  .hero-icon {
+    position: absolute;
+    top: 2rem;         /* adjust top position */
+    left: 2rem;        /* adjust left position */
+    max-width: 300px;  /* or whatever fits your layout */
+    z-index: 10;
+    pointer-events: none; /* optional if it overlaps other content */
+  }
+
+  .text-center.position-relative {
+    position: relative;
+  }
+
+  .container.position-relative {
+    position: relative;
+  }
+  
+  .mission-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1b1b1b;
+    max-width: 500px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+   
+  
+  
+  
+  
+  
+  
+  
+  

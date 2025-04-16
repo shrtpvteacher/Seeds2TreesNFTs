@@ -152,20 +152,27 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import MetaMaskVideo from '../components/MetaMaskVideo';
 import FaucetVideo from '../components/FaucetVideo';
+import seedlingHero from '../assets/seedling-hero-image.png';
 
 const Home = () => {
   return (
-    <Container className="py-3 text-center">
+    <Container className="py-3 text-center position-relative">
+    
       {/* Hero Title */}
-      <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
+    <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
+    <div className="hero-layout d-flex align-items-center justify-content-center flex-wrap">
+  <img
+    src={seedlingHero}
+    alt="Seeds2Trees Journey Icon"
+    className="hero-icon me-4"
+    style={{ maxWidth: '250px', height: 'auto' }}
+  />
 
-      {/* Mission Paragraph */}
-      <h3
-        className="bold mb-5 "
-        style={{  }}
-      > A Web3-powered tree planting donation platform where each NFT represents a tree planted!
-      use the NFT to track its growth ! 
-      </h3>
+  <p className="mission-text">
+    A Web3-powered tree planting donation platform where each NFT represents a tree planted.
+    Use the NFT to track its growth!
+  </p>
+</div>
      
 
       {/* Video 1: MetaMask Setup */}
