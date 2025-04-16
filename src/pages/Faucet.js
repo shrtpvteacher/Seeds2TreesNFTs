@@ -24,7 +24,7 @@ const Faucet = () => {
       const userAddress = await signer.getAddress();
       setAccount(userAddress);
 
-      const res = await fetch('/.netlify/functions/claimFor', {
+      const res = await fetch('/.netlify/functions/claimsFor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ recipient: userAddress }),
