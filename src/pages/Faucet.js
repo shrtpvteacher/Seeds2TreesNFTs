@@ -1,8 +1,10 @@
-console.log("Faucet page loaded")
+
 
 import React, { useState } from 'react';
 import { Button, Container, Alert, Spinner } from 'react-bootstrap';
 import { ethers } from 'ethers';
+
+console.log("Faucet page loaded")
 
 const Faucet = () => {
   const [loading, setLoading] = useState(false);
