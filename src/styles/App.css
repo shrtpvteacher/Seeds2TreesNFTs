@@ -99,10 +99,10 @@ h1, h2, h3, h4, h5 {
     pointer-events: none;
   }
   
-  
-  
-  
-  
+  .video-wrapper {
+    max-width: 800px;  /* or try 700px or 600px */
+    width: 100%;
+  }
   
   
   .home-wrapper {

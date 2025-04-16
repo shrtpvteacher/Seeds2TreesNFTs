@@ -177,11 +177,15 @@ const Home = () => {
 
     
       {/* Video 1: MetaMask Setup */}
+      <div className="video-wrapper mx-auto mb-5">
       <MetaMaskVideo />
+      </div>
 
       {/* Video 2: Faucet + Mint Instructions */}
-      <FaucetVideo />
-    </Container>
+      <div className="video-wrapper mx-auto">
+    <FaucetVideo />
+  </div>
+</Container>
 
     </div>
   );
