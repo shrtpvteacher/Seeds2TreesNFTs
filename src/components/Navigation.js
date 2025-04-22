@@ -104,7 +104,7 @@ const Navigation = () => {
 
           {/* Wallet Button */}
           <Button
-            variant={account ? "success" : "secondary"}
+            variant={account ? "success" : "danger"}
             onClick={connectWallet}
 
             onMouseEnter={() => setHovered(true)}
