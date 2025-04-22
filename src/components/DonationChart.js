@@ -107,11 +107,10 @@ const DonationChart = () => {
                 tickCount={5}
               />
               <YAxis
-                domain={[0.0001, "dataMax"]}
-                ticks={[0.0001, 0.0005, 0.001, 0.005, 0.01]}
-                tickFormatter={(val) => `${val} ETH`}
+                domain={[0, (dataMax) => dataMax * 1.2]} // 20% headroom
+                tickFormatter={(val) => `${val.toFixed(4)} ETH`}
                 tick={{ fontSize: 10 }}
-                allowDataOverflow={true}
+                allowDecimals={true}
               />
               <Tooltip
                 contentStyle={{ fontSize: "12px" }}
