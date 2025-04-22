@@ -2,7 +2,7 @@ import FaucetStatsCard from "../components/FaucetStatsCard";
 import FaucetStatusCard from "../components/FaucetStatusCard";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import FaucetAbi from "../abis/FaucetAbi.json";
+import FaucetAbi from "../abis/Seeds2TreesFaucet.json";
 
 const FaucetPage = () => {
   const contractAddress = "0xYourFaucetContractAddressHere";
