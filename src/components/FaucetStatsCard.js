@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import FaucetAbi from "../abis/Seeds2TreesFaucet.json";
+import { FaucetAbi }from "../abis/Seeds2TreesFaucet.json";
 
 const FaucetStatsCard = ({ contractAddress }) => {
   const [stats, setStats] = useState({
