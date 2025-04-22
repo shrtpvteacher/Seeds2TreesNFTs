@@ -10,19 +10,25 @@ interface IERC721 {
 
 contract Seeds2TreesFaucet is Ownable {
    
-    uint256 public faucetAmount = 0.001 ether;
+    uint256 public faucetAmount = 0.005 ether;
     uint256 public totalUniqueClaimers;
     uint256 public totalClaims;
-    
-    
+    bool public faucetActive = true;
 
     mapping(address => bool) public hasClaimed;
 
     event EthClaimed(address indexed claimer, uint256 amount);
+    event NewFaucetAmount(uint256 newAmount);
+    event FaucetStatusChanged(bool newStatus);
+
+    modifier whenFaucetActive() {
+    require(faucetActive, "Faucet is currently turned off.");
+    _;
+    }
 
     constructor() Ownable() {}
 
-    function claimFor(address payable recipient) external onlyOwner {
+    function claimFor(address payable recipient) external  whenFaucetActive {
         require(!hasClaimed[recipient], "You have already claimed.");
         require(address(this).balance >= faucetAmount, "Faucet empty, please try later.");
 
@@ -44,6 +50,25 @@ contract Seeds2TreesFaucet is Ownable {
         uint256 contractBalance = address(this).balance;
         (bool sent, ) = payable(owner()).call{value: contractBalance}("");
         require(sent, "Failed to withdraw Ether");
+    }
+
+    function setFaucetAmount(uint256 newAmount) public onlyOwner {
+        faucetAmount = newAmount;
+        emit NewFaucetAmount(newAmount);
+    } 
+
+    function toggleFaucet(bool _status) external onlyOwner {
+        faucetActive = _status;
+        emit FaucetStatusChanged(_status); // ← now it logs the change!
+    }
+
+    function getStats() external view returns (
+        uint256 balance,
+        uint256 claims,
+        uint256 uniqueClaimers,
+        bool isActive
+    ) {  
+        return (address(this).balance, totalClaims, totalUniqueClaimers, faucetActive);
     }
 
     // fallback and receive are OPTIONAL now

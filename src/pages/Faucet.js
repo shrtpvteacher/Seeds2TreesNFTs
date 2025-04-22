@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
-import { Button, Container, Alert, Spinner } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Button, Container, Alert, Spinner, Row, Col, Card } from 'react-bootstrap';
 import { ethers } from 'ethers';
+import FaucetAbi from '../abis/FaucetAbi.json';
+import FaucetStatsCard from '../components/FaucetStatsCard';
+import FaucetStatusCard from '../components/FaucetStatusCard';
 
 const Faucet = () => {
   const [loading, setLoading] = useState(false);
   const [account, setAccount] = useState(null);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+  const [faucetActive, setFaucetActive] = useState(true);
+
+  const contractAddress = process.env.REACT_APP_FAUCET_CONTRACT_ADDRESS;
+
+  useEffect(() => {
+    const fetchFaucetStatus = async () => {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
+        const [, , , isActive] = await contract.getStats();
+        setFaucetActive(isActive);
+      } catch (err) {
+        console.error("Failed to fetch faucet status:", err);
+        setFaucetActive(false); // fallback
+      }
+    };
+
+    fetchFaucetStatus();
+  }, []);
 
   const claimETH = async () => {
     try {
@@ -58,6 +80,17 @@ const Faucet = () => {
       <h1 className="mb-4">💧 Claim Sepolia Test ETH</h1>
       <p>If you watched the video, you can now claim free test ETH to mint your tree!</p>
 
+
+        {/* Status + Stats Row */}
+      <Row className="justify-content-center mb-4">
+        <Col md={6}>
+          <FaucetStatsCard contractAddress={contractAddress} />
+        </Col>
+        <Col md={4}>
+          <FaucetStatusCard isActive={faucetActive} />
+        </Col>
+      </Row>
+
       {message && <Alert variant="success">{message}</Alert>}
       {error && <Alert variant="danger">{error}</Alert>}
 
@@ -66,7 +99,7 @@ const Faucet = () => {
         variant="primary"
         size="lg"
         className="rounded-pill"
-        disabled={loading}
+        disabled={loading || !faucetActive}
       >
         {loading ? <Spinner animation="border" size="sm" /> : "Claim Test ETH"}
       </Button>
