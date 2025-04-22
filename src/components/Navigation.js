@@ -1,6 +1,6 @@
 // src/components/Navigation.js
 import React, { useEffect, useState } from "react";
-import { Navbar, Nav, Container, Button, Modal } from "react-bootstrap"; // ✅ added Modal here
+import { Navbar, Nav, Container, Button, Modal, OverlayTrigger, Tooltip, } from "react-bootstrap"; // ✅ added Modal here
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import '../styles/App.css';
@@ -91,22 +91,35 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/admin" className="text-white mx-3">Admin</Nav.Link>
           </Nav>
 
+            <OverlayTrigger
+                placement="bottom"
+                overlay={
+                    account ? (
+                        <Tooltip id="wallet-tooltip">{account}</Tooltip>
+                    ) : (
+                        <Tooltip id="wallet-tooltip">Click to connect</Tooltip>
+                    )
+                }
+            >
+
           {/* Wallet Button */}
           <Button
-            variant="danger"
+            variant={account ? "success" : "secondary"}
             onClick={connectWallet}
+
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             className="wallet-button"
           >
-            {!account
-              ? "Connect Wallet"
-              : hovered
-                ? "Change Wallet"
-                : `${account.slice(0, 6)}...${account.slice(-4)}`}
+            {account
+                ? hovered
+                    ? `${account.slice(0, 6)}...${account.slice(-4)}`
+                    : "Connected"
+                : "Connect Wallet"}
           </Button>
-        </Container>
-      </Navbar>
+        </OverlayTrigger>  
+    </Container>
+    </Navbar>
 
       {/* ✅ Modal for Wrong Network wrapped in fragment */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
