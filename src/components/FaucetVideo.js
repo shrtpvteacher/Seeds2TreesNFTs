@@ -14,7 +14,7 @@ const FaucetVideo = () => {
       <div className="mb-4 text-center">
         {!showVideo ? (
           <img
-            src={`https://youtu.be/faucetVideoId`}
+            src={`https://img.youtube.com/vi/${faucetVideoId}/hqdefault.jpg`}
             alt="Seeds2Trees Project Walkthrough"
             className="img-fluid rounded shadow-sm"
             style={{ cursor: 'pointer', maxWidth: '560px' }}
