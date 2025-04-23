@@ -41,7 +41,7 @@ const FaucetStatsCard = () => {
            <Spinner animation="border" size="sm" />
         ) : (
           <p>
-            <strong>{faucetBalance}</strong> ETH in Faucet
+            <strong>{faucetBalance}</strong> 
           </p>
         )}
     </div>   
