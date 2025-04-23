@@ -16,14 +16,11 @@ const FaucetStatsCard = () => {
     const loadFaucetBalance = async () => {
       
       try {
-        if (!contractAddress) {
-          throw new Error("Contract address is missing");
-        }
+        if (!contractAddress || !window.ethereum) return;
 
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
 
-        
         const [balanceWei] = await contract.getStats(); // getStats returns a tuple
         const balanceEth = ethers.utils.formatEther(balanceWei);
         setFaucetBalance(balanceEth); // Convert the balance from wei to ETH
@@ -36,19 +33,18 @@ const FaucetStatsCard = () => {
 
     loadFaucetBalance();
   }, []); // place an address in here if you need to Re-run this effect if the contractAddress changes
+  if (!faucetBalance || loading) return null;
 
   return (
     <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
       {loading ? (
-        <Spinner animation="border" size="sm" /> // Show spinner while loading
-      ) : error ? (
-        <p className="text-danger">{error}</p> // Show error message if there's an issue
-      ) : (
-        <p>
-          <strong>{faucetBalance}</strong> ETH in Faucet
-        </p>
-      )}
-    </div>
+           <Spinner animation="border" size="sm" />
+        ) : (
+          <p>
+            <strong>{faucetBalance}</strong> ETH in Faucet
+          </p>
+        )}
+    </div>   
   );
 };
 

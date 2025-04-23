@@ -3,6 +3,7 @@ import { Button, Container, Alert, Spinner, Row, Col, Card } from 'react-bootstr
 import { ethers } from 'ethers';
 import FaucetAbi from '../abis/Seeds2TreesFaucet.json';
 import FaucetStatsCard from '../components/FaucetStatsCard';
+import { Link } from 'react-router-dom';
 
 
 const Faucet = () => {
@@ -94,7 +95,7 @@ const Faucet = () => {
 
       <div className="mt-4 mb-4">
       <Link to="/donate">
-        <Button href="/mint" variant="success" size="md" className="rounded-pill">
+       <Button variant="success" size="md" className="rounded-pill">
           Go Mint & Donate 🌱
         </Button>
         </Link>
