@@ -36,7 +36,7 @@ const FaucetStatsCard = () => {
  
 
   return (
-    <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
+    <div className="shadow p-3 mb-2 rounded-3 p-4 w-fit max-w-md mx-auto">
       {loading ? (
            <Spinner animation="border" size="sm" />
         ) : (
