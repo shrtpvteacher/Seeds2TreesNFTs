@@ -6,15 +6,15 @@ import { Spinner } from 'react-bootstrap'; // Import Spinner for loading
 const FaucetStatsCard = () => {
   const [faucetBalance, setFaucetBalance] = useState(null);
   const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(null); // Track errors
+ 
 
-  // Define the contract address directly in the component
+  
   const contractAddress = process.env.REACT_APP_FAUCET_CONTRACT_ADDRESS;
 
-  // Fetch the faucet balance when the component mounts
+  
   useEffect(() => {
     const loadFaucetBalance = async () => {
-      setLoading(true); // Set loading to true before fetching
+      
       try {
         if (!contractAddress) {
           throw new Error("Contract address is missing");
@@ -23,13 +23,14 @@ const FaucetStatsCard = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
 
-        // Fetch the balance from the contract
-        const balance = await contract.balance(); // Assuming this function is implemented in your contract
+        
+        const [balanceWei] = await contract.getStats(); // getStats returns a tuple
+        const balanceEth = ethers.utils.formatEther(balanceWei);
         setFaucetBalance(ethers.utils.formatEther(balance)); // Convert the balance from wei to ETH
-      } catch (err) {
-        console.error("Failed to fetch faucet balance:", err);
-        setError("Failed to fetch faucet balance. Please try again later.");
-        setFaucetBalance(null);
+    
+        setFaucetBalance(balanceEth);
+         } catch (err) {
+        console.warn("Faucet balance not available:", err.message);
       } finally {
         setLoading(false); // Set loading to false after fetching
       }
@@ -54,4 +55,4 @@ const FaucetStatsCard = () => {
   );
 };
 
-export default FaucetStatsCard;
+export default FaucetStatsCard; 
