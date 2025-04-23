@@ -14,26 +14,23 @@ const FaucetStatsCard = () => {
   
   useEffect(() => {
     const loadFaucetBalance = async () => {
-      
       try {
         if (!contractAddress || !window.ethereum) return;
 
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
-
-        const [balanceWei] = await provider.getBalance(contractAddress); // getStats returns a tuple
+        const balanceWei = await provider.getBalance(contractAddress); // ✅ FIXED
         const balanceEth = ethers.utils.formatEther(balanceWei);
         setFaucetBalance(balanceEth); // Convert the balance from wei to ETH
-        } catch (err) {
+      } catch (err) {
         console.warn("Faucet balance not available:", err.message);
       } finally {
         setLoading(false); // Set loading to false after fetching
       }
     };
 
-    loadBalance();
-  }, []); // place an address in here if you need to Re-run this effect if the contractAddress changes
- 
+    loadFaucetBalance(); // ✅ FIXED name
+  }, []); 
+
 
   return (
     <div className="shadow p-3 mb-2 rounded-3 p-4 w-fit max-w-md mx-auto">
