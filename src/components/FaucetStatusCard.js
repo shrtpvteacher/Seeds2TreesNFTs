@@ -2,7 +2,7 @@ import React from "react";
 
 const FaucetStatusCard = ({ isActive }) => {
   return (
-    <div className="flex flex-col items-center sm-yellow shadow p-3 mb-5 rounded-pill p-6 w-full max-w-md mx-auto mt-6">
+    <div className="flex flex-col items-center bg-yellow shadow p-3 mb-5 rounded-pill p-6 w-full max-w-md mx-auto mt-6">
       <div className="relative w-16 h-32 bg-gray-300 rounded-full flex items-center justify-center">
         <div className={`w-10 h-10 rounded-full bg-gray-800 transition-transform duration-300 ${isActive ? "translate-y-[-40px]" : "translate-y-[40px]"}`}></div>
       </div>
