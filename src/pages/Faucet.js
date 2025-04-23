@@ -3,32 +3,17 @@ import { Button, Container, Alert, Spinner, Row, Col, Card } from 'react-bootstr
 import { ethers } from 'ethers';
 import FaucetAbi from '../abis/Seeds2TreesFaucet.json';
 import FaucetStatsCard from '../components/FaucetStatsCard';
-import FaucetStatusCard from '../components/FaucetStatusCard';
+
 
 const Faucet = () => {
   const [loading, setLoading] = useState(false);
   const [account, setAccount] = useState(null);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
-  const [faucetActive, setFaucetActive] = useState(true);
+  
 
   const contractAddress = process.env.REACT_APP_FAUCET_CONTRACT_ADDRESS;
 
-  useEffect(() => {
-    const fetchFaucetStatus = async () => {
-      try {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
-        const [, , , isActive] = await contract.getStats();
-        setFaucetActive(isActive);
-      } catch (err) {
-        console.error("Failed to fetch faucet status:", err);
-        setFaucetActive(false); // fallback
-      }
-    };
-
-    fetchFaucetStatus();
-  }, []);
 
   const claimETH = async () => {
     try {
@@ -86,9 +71,6 @@ const Faucet = () => {
         <Col md={6}>
           <FaucetStatsCard contractAddress={contractAddress} />
         </Col>
-        <Col md={4}>
-          <FaucetStatusCard isActive={faucetActive} />
-        </Col>
       </Row>
 
       {message && <Alert variant="success">{message}</Alert>}
@@ -99,7 +81,7 @@ const Faucet = () => {
         variant="primary"
         size="lg"
         className="rounded-pill"
-        disabled={loading || !faucetActive}
+        disabled={loading}
       >
         {loading ? <Spinner animation="border" size="sm" /> : "Claim Test ETH"}
       </Button>

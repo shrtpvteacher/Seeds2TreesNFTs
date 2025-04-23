@@ -1,12 +1,12 @@
 import FaucetStatsCard from "../components/FaucetStatsCard";
-import FaucetStatusCard from "../components/FaucetStatusCard";
+//import FaucetStatusCard from "../components/FaucetStatusCard";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import FaucetAbi from "../abis/Seeds2TreesFaucet.json";
 
 const FaucetPage = () => {
   const contractAddress = "0xYourFaucetContractAddressHere";
-  const [isActive, setIsActive] = useState(false);
+ // const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const fetchStatus = async () => {

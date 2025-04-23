@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 
 const FaucetStatusCard = ({ isActive }) => {
   return (
@@ -16,4 +16,4 @@ const FaucetStatusCard = ({ isActive }) => {
   );
 };
 
-export default FaucetStatusCard;
+export default FaucetStatusCard; */

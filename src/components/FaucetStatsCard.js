@@ -7,7 +7,6 @@ const FaucetStatsCard = ({ contractAddress }) => {
     balance: 0,
     totalClaims: 0,
     totalUniqueClaimers: 0,
-    isActive: false,
   });
 
   useEffect(() => {
@@ -15,13 +14,13 @@ const FaucetStatsCard = ({ contractAddress }) => {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
-        const [balance, claims, uniqueClaimers, active] = await contract.getStats();
+        const [balance, claims, uniqueClaimers] = await contract.getStats();
 
         setStats({
           balance: ethers.utils.formatEther(balance),
           totalClaims: claims.toNumber(),
           totalUniqueClaimers: uniqueClaimers.toNumber(),
-          isActive: active,
+          
         });
       } catch (error) {
         console.error("Failed to fetch stats:", error);
@@ -38,12 +37,6 @@ const FaucetStatsCard = ({ contractAddress }) => {
         <li><strong>Contract Balance:</strong> {stats.balance} ETH</li>
         <li><strong>Total Claims:</strong> {stats.totalClaims}</li>
         <li><strong>Unique Claimers:</strong> {stats.totalUniqueClaimers}</li>
-        <li>
-          <strong>Status:</strong>{" "}
-          <span className={`font-semibold ${stats.isActive ? "text-green-600" : "text-red-600"}`}>
-            {stats.isActive ? "ON" : "OFF"}
-          </span>
-        </li>
       </ul>
     </div>
   );
