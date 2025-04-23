@@ -39,7 +39,7 @@ const FaucetStatsCard = () => {
   }, [contractAddress]); // Re-run this effect if the contractAddress changes
 
   return (
-    <div className="shadow p-3 mb-5 rounded-3 p-4 w-full max-w-md mx-auto">
+    <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
       <h2 className="text-2xl font-semibold mb-1">Faucet Balance</h2>
       {loading ? (
         <Spinner animation="border" size="sm" /> // Show spinner while loading
