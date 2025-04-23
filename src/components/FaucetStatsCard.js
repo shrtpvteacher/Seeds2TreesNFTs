@@ -26,10 +26,8 @@ const FaucetStatsCard = () => {
         
         const [balanceWei] = await contract.getStats(); // getStats returns a tuple
         const balanceEth = ethers.utils.formatEther(balanceWei);
-        setFaucetBalance(ethers.utils.formatEther(balance)); // Convert the balance from wei to ETH
-    
-        setFaucetBalance(balanceEth);
-         } catch (err) {
+        setFaucetBalance(balanceEth); // Convert the balance from wei to ETH
+        } catch (err) {
         console.warn("Faucet balance not available:", err.message);
       } finally {
         setLoading(false); // Set loading to false after fetching
@@ -37,7 +35,7 @@ const FaucetStatsCard = () => {
     };
 
     loadFaucetBalance();
-  }, [contractAddress]); // Re-run this effect if the contractAddress changes
+  }, []); // place an address in here if you need to Re-run this effect if the contractAddress changes
 
   return (
     <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
