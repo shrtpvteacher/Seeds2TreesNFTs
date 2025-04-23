@@ -21,7 +21,7 @@ const FaucetStatsCard = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const contract = new ethers.Contract(contractAddress, FaucetAbi, provider);
 
-        const [balanceWei] = await contract.getStats(); // getStats returns a tuple
+        const [balanceWei] = await provider.getBalance(contractAddress); // getStats returns a tuple
         const balanceEth = ethers.utils.formatEther(balanceWei);
         setFaucetBalance(balanceEth); // Convert the balance from wei to ETH
         } catch (err) {
@@ -31,7 +31,7 @@ const FaucetStatsCard = () => {
       }
     };
 
-    loadFaucetBalance();
+    loadBalance();
   }, []); // place an address in here if you need to Re-run this effect if the contractAddress changes
  
 
