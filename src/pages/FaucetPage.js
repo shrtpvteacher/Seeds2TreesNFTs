@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 import FaucetAbi from "../abis/Seeds2TreesFaucet.json";
 
 const FaucetPage = () => {
-  const contractAddress = "0xYourFaucetContractAddressHere";
+  const contractAddress = process.env.REACT_APP_FAUCET_CONTRACT_ADDRESS;
  // const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const FaucetPage = () => {
   return (
     <div className="p-8 space-y-6">
       <FaucetStatsCard contractAddress={contractAddress} />
-      <FaucetStatusCard isActive={isActive} />
+    
     </div>
   );
 };
