@@ -92,10 +92,12 @@ const Faucet = () => {
       </div>
    )}
 
-      <div className="mt-4">
+      <div className="mt-4 mb-4">
+      <Link to="/donate">
         <Button href="/mint" variant="success" size="md" className="rounded-pill">
           Go Mint & Donate 🌱
         </Button>
+        </Link>
       </div>
     </Container>
   );
