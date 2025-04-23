@@ -33,7 +33,7 @@ const FaucetStatsCard = () => {
 
     loadFaucetBalance();
   }, []); // place an address in here if you need to Re-run this effect if the contractAddress changes
-  if (!faucetBalance || loading) return null;
+ 
 
   return (
     <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
