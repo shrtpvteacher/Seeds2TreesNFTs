@@ -32,7 +32,7 @@ const FaucetStatsCard = ({ contractAddress }) => {
   }, [contractAddress]);
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-md mx-auto">
+    <div className="bg-yellow shadow p-3 mb-5 rounded-pill p-6 w-full max-w-md mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Faucet Stats</h2>
       <ul className="space-y-2 text-gray-800">
         <li><strong>Contract Balance:</strong> {stats.balance} ETH</li>
