@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Container, Alert, Spinner, Row, Col, Card } from 'react-bootstrap';
 import { ethers } from 'ethers';
 import FaucetAbi from '../abis/Seeds2TreesFaucet.json';
-// import FaucetStatsCard from '../components/FaucetStatsCard';
+import FaucetStatsCard from '../components/FaucetStatsCard';
 
 
 const Faucet = () => {
