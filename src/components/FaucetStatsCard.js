@@ -41,14 +41,13 @@ const FaucetStatsCard = () => {
 
   return (
     <div className="shadow p-3 mb-2 rounded-3 p-4 w-full max-w-md mx-auto">
-      <h2 className="text-2xl font-semibold mb-1">Faucet Balance</h2>
       {loading ? (
         <Spinner animation="border" size="sm" /> // Show spinner while loading
       ) : error ? (
         <p className="text-danger">{error}</p> // Show error message if there's an issue
       ) : (
         <p>
-          <strong>{faucetBalance}</strong> ETH
+          <strong>{faucetBalance}</strong> ETH in Faucet
         </p>
       )}
     </div>
