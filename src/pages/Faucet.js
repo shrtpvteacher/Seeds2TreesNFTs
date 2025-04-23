@@ -64,11 +64,21 @@ const Faucet = () => {
   return (
     <Container className="text-center py-5">
       <h1 className="mb-4">💧 Claim Sepolia Test ETH</h1>
-      <p>If you watched the video, you can now claim free test ETH to mint your tree!</p>
+      <p>If you watched the video, and there are funds in the faucet you can now claim free test ETH to mint your tree!</p>
+
+      <Button
+        onClick={claimETH}
+        variant="primary"
+        size="lg"
+        className="rounded-pill mb-4"
+        disabled={loading}
+      >
+        {loading ? <Spinner animation="border" size="sm" /> : "Claim Test ETH"}
+      </Button>
 
 
         {/* Status + Stats Row */}
-      <Row className="justify-content-center mb-4">
+      <Row className="justify-content-center mb-28">
         <Col md={6}>
           <FaucetStatsCard contractAddress={contractAddress} />
         </Col>
@@ -77,15 +87,7 @@ const Faucet = () => {
       {message && <Alert variant="success">{message}</Alert>}
       {error && <Alert variant="danger">{error}</Alert>}
 
-      <Button
-        onClick={claimETH}
-        variant="primary"
-        size="lg"
-        className="rounded-pill"
-        disabled={loading}
-      >
-        {loading ? <Spinner animation="border" size="sm" /> : "Claim Test ETH"}
-      </Button>
+     
 
     {loading && (
       <div className="mt-3">

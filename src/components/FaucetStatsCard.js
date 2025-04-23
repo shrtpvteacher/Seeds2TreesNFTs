@@ -20,6 +20,11 @@ const FaucetStatsCard = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const balanceWei = await provider.getBalance(contractAddress); // ✅ FIXED
         const balanceEth = ethers.utils.formatEther(balanceWei);
+
+        console.log("📡 Checking balance for:", contractAddress);
+        console.log("💧 Raw balance (wei):", balanceWei.toString());
+        console.log("💰 Formatted balance (ETH):", balanceEth);
+
         setFaucetBalance(balanceEth); // Convert the balance from wei to ETH
       } catch (err) {
         console.warn("Faucet balance not available:", err.message);
@@ -33,15 +38,13 @@ const FaucetStatsCard = () => {
 
 
   return (
-    <div className="shadow p-3 mb-2 rounded-3 p-4 w-fit max-w-md mx-auto">
-      {loading ? (
-           <Spinner animation="border" size="sm" />
-        ) : (
+    
+      
           <p>
-            <strong>{faucetBalance}</strong> 
+            <strong>{faucetBalance}</strong> ETH available in the faucet.
           </p>
-        )}
-    </div>   
+    
+     
   );
 };
 
