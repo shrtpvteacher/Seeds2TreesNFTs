@@ -2,22 +2,13 @@
 import { ethers } from 'ethers';
 import contractABI from '../abis/Seeds2TreesNFTs.json';
 
-
 const contractAddress = "0x8ba2b3700b797378B2696060089afCeF20791087"; // Replace with your real deployed address
 
-//const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-
-
-/*// Initialize provider and signer
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-const signer = provider.getSigner();
-
-// Contract instances
-const contractWithSigner = new ethers.Contract(contractAddress, contractABI, signer);
-const contractWithProvider = new ethers.Contract(contractAddress, contractABI, provider);
-
-// Export core instances
-export { provider, signer, contractWithSigner, contractWithProvider }; */
+export function getContractWithProvider() {
+  const RPC_URL = process.env.SEPOLIA_RPC_URL;
+  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+  return new ethers.Contract(contractAddress, contractABI, provider);
+}
 
 // ✅ Reusable helper to get provider and signer
 export const getProviderAndSigner = async () => {
@@ -37,19 +28,19 @@ export const getProviderAndSigner = async () => {
     }
   };
 
-/*const fallbackProvider = new ethers.providers.JsonRpcProvider(process.env.REACT_APP_SEPOLIA_RPC_URL);
-
-export function getContractWithProvider() {
-  return new ethers.Contract(contractAddress, contractABI, fallbackProvider);
-} */
-
-  // ✅ Get contract with provider only (for read-only functions)
+  // Get contract with provider only (for read-only functions)
   export async function getContractWithProvider() {
     const { provider } = await getProviderAndSigner();
     return new ethers.Contract(contractAddress, contractABI, provider);
   } 
-  
-  // ✅ Get contract with signer (for write functions)
+
+  export function getReadOnlyProvider() {
+  const RPC_URL = process.env.SEPOLIA_RPC_URL || "https://sepolia.infura.io/v3/YOUR_INFURA_KEY";
+  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+  return new ethers.Contract(contractAddress, contractABI, provider);
+}
+
+  //  Get contract with signer (for write functions)
   export async function getContractWithSigner() {
     const wallet = await getProviderAndSigner();
     if (!wallet) return null;
@@ -57,7 +48,7 @@ export function getContractWithProvider() {
     return new ethers.Contract(contractAddress, contractABI, signer);
   }
   
-  // ✅ Generic contract loader with signer (pass in address + ABI)
+  // Generic contract loader with signer (pass in address + ABI)
 export async function getCustomContractWithSigner(address, abi) {
     const wallet = await getProviderAndSigner();
     if (!wallet) return null;
@@ -65,19 +56,6 @@ export async function getCustomContractWithSigner(address, abi) {
     return new ethers.Contract(address, abi, signer);
   }
   
-
-  /*// ✅ Get contract with signer (used for write functions)
-  export async function getContractWithSigner() {
-    const provider = await getProvider();
-    const signer = provider.getSigner();
-    return new ethers.Contract(contractAddress, contractABI, signer);
-  }
-  
-  // ✅ Get contract with provider (used for read-only functions)
-  export async function getContractWithProvider() {
-    const provider = await getProvider();
-    return new ethers.Contract(contractAddress, contractABI, provider);
-  } */
 
 // Contract Read Functions
 export async function getMintPrice() {
