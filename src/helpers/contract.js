@@ -28,11 +28,6 @@ export const getProviderAndSigner = async () => {
     }
   };
 
-  // Get contract with provider only (for read-only functions)
-  export async function getContractWithProvider() {
-    const { provider } = await getProviderAndSigner();
-    return new ethers.Contract(contractAddress, contractABI, provider);
-  } 
 
   export function getReadOnlyProvider() {
   const RPC_URL = process.env.SEPOLIA_RPC_URL || "https://sepolia.infura.io/v3/YOUR_INFURA_KEY";
