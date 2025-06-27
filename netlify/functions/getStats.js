@@ -1,6 +1,6 @@
 const { ethers } = require("ethers");
 const fetch = require("node-fetch"); // Node.js fetch
-const CONTRACT_ABI = require("../abis/Seeds2Trees.json");
+const CONTRACT_ABI = require("./abis/Seeds2TreesNFTs.json");
 const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; // <-- UPDATE THIS to your deployed contract!
 
 const CHAIN_ID = 11155111; // Sepolia
