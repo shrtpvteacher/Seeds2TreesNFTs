@@ -8,7 +8,7 @@ module.exports = {
         chainId: 31337,
     },
     sepolia: {
-      url: process.env.SEPOLIA_RPC_URL,
+      url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
       accounts: process.env.SEPOLIA_PRIVATE_KEY ? [process.env.SEPOLIA_PRIVATE_KEY] : [],
       chainId: 11155111, // Sepolia Testnet Chain ID
     },
