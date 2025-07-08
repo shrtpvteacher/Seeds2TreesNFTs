@@ -6,7 +6,7 @@ const CONTRACT_ADDRESS = "0x8ba2b3700b797378B2696060089afCeF20791087"; // <-- UP
 const CHAIN_ID = 11155111; // Sepolia
 
 // Use Netlify env vars (set in Netlify dashboard)
-const RPC_URL = process.env.SEPOLIA_RPC_URL;
+const RPC_URL = `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
 const IPFS_BASE_URI = process.env.IPFS_BASE_URI || "ipfs://bafybeiefnw6sns63pzopc5lc6ay6grzdfdtiltstdbtuxor4o3wnc2we6u/";
 const IPFS_GATEWAY = "https://gateway.pinata.cloud/ipfs/";
 
