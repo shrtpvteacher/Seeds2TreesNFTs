@@ -12,7 +12,7 @@ const IPFS_GATEWAY = "https://gateway.pinata.cloud/ipfs/";
 
 exports.handler = async function(event, context) {
   try {
-    const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+    const provider  = new ethers.providers.Web3Provider(window.ethereum);
     const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
 
     // 1. Get contract stats
