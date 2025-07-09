@@ -4,11 +4,10 @@ import contractABI from '../abis/Seeds2TreesNFTs.json';
 
 const contractAddress = "0x8ba2b3700b797378B2696060089afCeF20791087"; // Replace with your real deployed address
 
-export function getContractWithProvider() {
-  const RPC_URL = process.env.SEPOLIA_RPC_URL;
-  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
-  return new ethers.Contract(contractAddress, contractABI, provider);
-}
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+
+
 
 // ✅ Reusable helper to get provider and signer
 export const getProviderAndSigner = async () => {
@@ -28,12 +27,18 @@ export const getProviderAndSigner = async () => {
     }
   };
 
+   // ✅ Get contract with provider only (for read-only functions)
+  export async function getContractWithProvider() {
+    const { provider } = await getProviderAndSigner();
+    return new ethers.Contract(contractAddress, contractABI, provider);
+  } 
 
-  export function getReadOnlyProvider() {
+
+ /* export function getReadOnlyProvider() {
   const RPC_URL = process.env.SEPOLIA_RPC_URL || "https://sepolia.infura.io/v3/YOUR_INFURA_KEY";
   const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
   return new ethers.Contract(contractAddress, contractABI, provider);
-}
+} */
 
   //  Get contract with signer (for write functions)
   export async function getContractWithSigner() {
@@ -41,14 +46,6 @@ export const getProviderAndSigner = async () => {
     if (!wallet) return null;
     const { signer } = wallet;
     return new ethers.Contract(contractAddress, contractABI, signer);
-  }
-  
-  // Generic contract loader with signer (pass in address + ABI)
-export async function getCustomContractWithSigner(address, abi) {
-    const wallet = await getProviderAndSigner();
-    if (!wallet) return null;
-    const { signer } = wallet;
-    return new ethers.Contract(address, abi, signer);
   }
   
 
