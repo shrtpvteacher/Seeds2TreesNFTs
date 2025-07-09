@@ -1,25 +1,22 @@
 // src/components/DonationTracker.js
 import React, { useState, useEffect } from "react";
-import { Card, Spinner } from "react-bootstrap";
+import { Card,  Container, Row, Spinner } from "react-bootstrap";
 import {
   getTotalMinted,
   getTotalDonations,
   getPlantedTrees,
   getTotalWithdrawn,
-  getContractWithProvider
 } from "../helpers/contract";
 
-const DonationTracker = () => {
-
-   
+const DonationTracker = () => { 
   const [loading, setLoading] = useState(true);
    const [error, setError] = useState(false);
   const [stats, setStats] = useState({
     
-    minted: null,
-    donations: null,
-    planted: null,
-    withdrawn: null
+    minted: 0,
+    donations: "0",
+    planted: 0 ,
+    withdrawn: "0"
   });
 
   useEffect(() => {
@@ -41,25 +38,7 @@ const DonationTracker = () => {
     fetchStats();
   }, []);
 
-   // Helper for rendering each stat row
-  function renderStatRow(title, value, isEth) {
-    let content = "Loading...";
-    if (error) {
-      content = "Could not load data";
-    } else if (!loading && value !== null && value !== undefined) {
-      content = isEth ? `${value} ETH` : value;
-    }
-    return (
-      <>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{content}</Card.Text>
-      </>
-    );
-  }
-
   return (
-    
-      
           <Card className="text-center shadow-sm">
             <Card.Body>
             <Card.Title>Total ETH Donated</Card.Title>
