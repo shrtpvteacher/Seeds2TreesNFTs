@@ -104,7 +104,7 @@ const MetaMaskVideo = () => {
             src={`https://img.youtube.com/vi/${metaMaskVideoId}/hqdefault.jpg`}
             alt="Install MetaMask Thumbnail"
             className="img-fluid rounded shadow-sm"
-            style={{ cursor: 'pointer', maxWidth: '560px' }}
+            style={{ cursor: 'pointer', maxWidth: '560px', width: '100%' }}
             onClick={() => setShowVideo(true)}
           />
         ) : (

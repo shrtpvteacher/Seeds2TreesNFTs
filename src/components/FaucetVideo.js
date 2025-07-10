@@ -17,7 +17,7 @@ const FaucetVideo = () => {
             src={`https://img.youtube.com/vi/${faucetVideoId}/hqdefault.jpg`}
             alt="Seeds2Trees Project Walkthrough"
             className="img-fluid rounded shadow-sm"
-            style={{ cursor: 'pointer', maxWidth: '560px' }}
+            style={{ cursor: 'pointer', maxWidth: '560px',  width: '100%' }}
             onClick={() => setShowVideo(true)}
           />
         ) : (

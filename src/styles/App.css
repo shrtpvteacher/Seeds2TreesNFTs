@@ -99,12 +99,24 @@ h1, h2, h3, h4, h5 {
     pointer-events: none;
   }
   
-  .video-wrapper {
-    max-width: 650px;  /* or try 700px or 600px */
-    width: 100%;
-    padding: 1rem
-  }
   
+  .video-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  position: relative;
+}
+
+.video-wrapper iframe {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  border: none;
+}
   
   .home-wrapper {
     position: relative;
@@ -134,3 +146,28 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .hero-stamp {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  width: 320px;
+  max-width: 320px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.97;
+}
+
+/* Responsive: move and shrink logo on tablet/mobile */
+@media (max-width: 991.98px) {
+  .hero-stamp {
+    position: static;
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: 150px;
+    max-width: 150px;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+}
