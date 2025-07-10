@@ -7,7 +7,7 @@ const FaucetVideo = () => {
 
   return (
     <Card className="p-4 mb-5 shadow-lg rounded-4 bg-white bg-opacity-90">
-      <h2 className="mb-3">🌱 Ready to Mint Your Tree NFT?</h2>
+      <h2 className="mb-3 text-dark"> Ready to Mint Your Tree NFT?</h2>
       <p>Watch this video to learn how the App Works to mint your NFT or click below for one time faucet.</p>
 
       { 

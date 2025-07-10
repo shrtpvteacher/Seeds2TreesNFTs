@@ -158,26 +158,26 @@ const Home = () => {
   return (
 
     <div className="home-wrapper">
-  <img
+   
+    <Container className="py-3 text-center position-relative">
+
+          <img
     src={seedlingHero}
     alt="Seeds2Trees Journey Icon"
-    className="hero-background-image"
-  />
-
-    <Container className="py-3 text-center position-relative">
+    className="hero-background-image"  />
     
       {/* Hero Title */}
-    <h1 className="display-4 fw-bold mb-3">Seeds2Trees NFTs</h1>
+    <h1 className="display-3 fw-bold mt-4 mb-3 text-white ">Seeds2Trees NFTs</h1>
    
 
-<h3 className="mission-reset mt-2 mb-3">
+<h3 className="mission-reset mt-4 mb-3 text-white">
       A Web3-powered tree planting donation platform where each NFT represents a tree planted.
       Use the NFT to track its growth!
     </h3>
 
     
       {/* Video 1: MetaMask Setup */}
-      <div className="video-wrapper mx-auto mb-5">
+      <div className="video-wrapper mx-auto mb-2">
       <MetaMaskVideo />
       </div>
 

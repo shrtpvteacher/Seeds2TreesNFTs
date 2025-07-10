@@ -2,7 +2,7 @@
 
 .App {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #8acfe6, #011f01);
+    background: linear-gradient(to bottom, #4f9cfb, #2d9161, #012c3a);
     color: #333;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@
 }
   
 h1, h2, h3, h4, h5 {
-    color: #342e2a;
+    color: #ecfbfc;
     font-weight: 600;
 }
 
@@ -100,8 +100,9 @@ h1, h2, h3, h4, h5 {
   }
   
   .video-wrapper {
-    max-width: 800px;  /* or try 700px or 600px */
+    max-width: 650px;  /* or try 700px or 600px */
     width: 100%;
+    padding: 1rem
   }
   
   
@@ -125,10 +126,11 @@ h1, h2, h3, h4, h5 {
   }
 
   .video-header {
-    white-space: nowrap;
+    white-space: wrap;
     font-size: 1.5rem; /* adjust down if it still wraps */
     font-weight: 500;
     text-align: center;
+     color: #141312;
     overflow: hidden;
     text-overflow: ellipsis;
   }

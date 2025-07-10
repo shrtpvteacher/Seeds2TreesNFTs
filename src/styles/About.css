@@ -1,8 +1,9 @@
 .about-page {
     position: relative;
-    height: 100vh;
+    height: 200vh;
     overflow-y: auto;
     font-family: 'Poppins', sans-serif;
+
 }
 
 .hero-image {
@@ -11,9 +12,10 @@
     top: 0;
     height: 200vh;
     max-height: 200%;
-    object-fit: contain;
     z-index: 1;
     pointer-events: none; /* so text can scroll over it if needed */
+  
+    
 }
 
 .about-text-box {
@@ -22,13 +24,17 @@
     z-index: 2;
     max-height: 90vh;
     overflow-y: auto;
+     
+}
+.about-text-box h2 {
+    color: #dceff5;
 }
 
 .about-text-box p {
     text-indent: 1.5rem;      /* ✅ Indent first line */
     line-height: 2;         /* ✅ Add spacing between lines */
     margin-bottom: 2rem;      /* ✅ Add spacing between paragraphs */
-    color: #05161b;
+    color: #dceff5;
 }
 
 .about-text-box h3 {
@@ -48,17 +54,21 @@
     overflow-y: auto;
 }
 
+.about-the-creator h1{
+    color: #e3f2f6;
+}
+
 .about-the-creator h3 {
     
     text-indent: 3rem;      /* ✅ Indent first line */
     line-height: 2;         /* ✅ Add spacing between lines */
     margin-bottom: 1rem;      /* ✅ Add spacing between paragraphs */
-    color: #05161b;
+    color: #e3f2f6;
 }
   
 
 .about-the-creator p {
-    color: #090a0a;
+    color: #e7f6f6;
     text-indent: 1.5rem;      /* ✅ Indent first line */
     line-height: 2;         /* ✅ Add spacing between lines */
     margin-bottom: 5rem;      /* ✅ Add spacing between paragraphs */
@@ -66,7 +76,7 @@
 }
 
 .creator-link {
-    color: orange;
+    color: rgb(19, 54, 230);
     font-weight: 600;
     
 }
