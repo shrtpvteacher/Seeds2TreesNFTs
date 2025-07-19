@@ -6,12 +6,12 @@
 /* Apply different fonts & sizes to header and subtitle */
 .donate-header {
     font-size: 3rem; /* Larger title for emphasis */
-    font-weight: 700; /* Extra bold */
+    font-weight: 600; /* Extra bold */
   
     text-align: center;
     margin-bottom: 3.5rem; /* Space below */
     white-space: nowrap; /* Ensure it's on one line */
-    color: #004d40; /* Deep green for eco-friendly theme */
+    color: #2f635a; /* Deep green for eco-friendly theme */
 }
 
 .donate-subtitle {
@@ -40,8 +40,13 @@
     max-width: 600px;
     margin: 4rem auto;
     text-align: center;
+    
 }
 
+.donate-container h1 {
+    font-family: 'Playfair Display', serif;
+    color: #01241e; /* Deep green for eco-friendly theme */
+}
 /* Input field styles */
 .form-group {
     margin-bottom: 1rem;

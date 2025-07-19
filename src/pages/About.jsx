@@ -42,7 +42,7 @@ const About = () => {
     rel="noopener noreferrer"
     className="creator-link"
   >
-    🌐 Visit My Dev Portfolio
+    Visit My Dev Portfolio
   </a>
 </div>
       </div>

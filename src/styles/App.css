@@ -26,10 +26,7 @@
     text-decoration: underline;
 }
   
-h1, h2, h3, h4, h5 {
-    color: #ecfbfc;
-    font-weight: 600;
-}
+
 
 
 .content-container {
@@ -50,6 +47,7 @@ h1, h2, h3, h4, h5 {
       transform: translateY(0);
     }
   }
+ 
 
   .hero-icon {
     position: absolute;
