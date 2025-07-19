@@ -20,7 +20,7 @@
 
 .about-text-box {
     position: relative;
-    max-width: 700px;
+    max-width: 1200px;
     z-index: 2;
     max-height: 90vh;
     overflow-y: auto;
@@ -77,7 +77,7 @@
 }
 
 .creator-link {
-    color: rgb(194, 197, 216);
+    color: rgb(249, 249, 251);
     font-weight: 600;
     font-size:large
     
