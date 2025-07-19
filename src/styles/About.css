@@ -47,11 +47,12 @@
 
 .about-the-creator {
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin-top: 2rem;
     z-index: 2;
     max-height: 200vh;
     overflow-y: auto;
+    min-width: 800px
 }
 
 .about-the-creator h1{
@@ -76,7 +77,8 @@
 }
 
 .creator-link {
-    color: rgb(19, 54, 230);
+    color: rgb(194, 197, 216);
     font-weight: 600;
+    font-size:large
     
 }
