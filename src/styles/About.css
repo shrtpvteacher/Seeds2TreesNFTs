@@ -20,10 +20,11 @@
 
 .about-text-box {
     position: relative;
-    max-width: 1200px;
+    max-width: 1000px;
     z-index: 2;
     max-height: 90vh;
     overflow-y: auto;
+    min-width: 600px;
      
 }
 .about-text-box h2 {
@@ -35,7 +36,7 @@
     line-height: 2;         /* ✅ Add spacing between lines */
     margin-bottom: 2rem;      /* ✅ Add spacing between paragraphs */
     color: #dceff5;
-    font-size:xx-large
+    font-size: x-large
 }
 
 .about-text-box h3 {
@@ -48,12 +49,12 @@
 
 .about-the-creator {
     position: relative;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-top: 2rem;
     z-index: 2;
     max-height: 200vh;
     overflow-y: auto;
-    min-width: 800px
+    min-width: 600px
 }
 
 .about-the-creator h1{
@@ -75,7 +76,7 @@
     line-height: 2;         /* ✅ Add spacing between lines */
     margin-bottom: 5rem;      /* ✅ Add spacing between paragraphs */
     margin-top: 1rem;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .creator-link {
