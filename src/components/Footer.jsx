@@ -21,6 +21,7 @@ const Footer = () => {
         <a href="https://github.com/shrtpvteacher/Seeds2TreesNFTs" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub </a>
         <a href="https://x.com/shrtpvteacher" target="_blank" rel="noopener noreferrer"><FaTwitter /> X (Twitter) </a>
        {/* <a href="https://youtube.com/your-video-demo-link" target="_blank" rel="noopener noreferrer"><FaYoutube /> Demo Video</a>  */}
+       <a href="https://kelly-coldren-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Creater's Portolio Resume</a>
       </div>
     </footer>
   );

@@ -37,15 +37,7 @@ const About = () => {
     I built Seeds2TreesNFTs to utilize the benefits of on chain transparency and immutable record tracking capacity of decentralized blockchain technology 
     with a real world need to see evidence of where and what someones donations have done for this particular instance to track the planting of trees in the redwood forest of California. You can explore my other projects, apps and ideas on my developer portfolio site.
   </p>
-  <a
-  
-    href="https://kelly-coldren-portfolio.netlify.app/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="creator-link"
-  >
-    Visit My Dev Portfolio
-    </a>
+ 
 </div>
       </div>
     
