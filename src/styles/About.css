@@ -92,10 +92,10 @@
 }
 
 .creator-link {
-    color: rgb(247, 156, 250);
+    color: rgb(52, 31, 135);
     font-weight: 500;
     font-size: x-large;
-    margin-left: 10rem;
+    margin-left: 20rem;
     position: relative;
     z-index: 10;
     
